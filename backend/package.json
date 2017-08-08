@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "aws-sdk": "^2.94.0",
     "bcrypt": "^1.0.2",
     "hapi": "^16.5.0",
     "hapi-auth-basic": "^4.2.0",
+    "mailparser": "^2.0.5",
     "mongoose": "^4.11.5",
+    "s3-emails-to-mongo": "^1.0.2",
     "util": "^0.10.3"
   }
 }

@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt');
 const basicAuth = require('hapi-auth-basic');
 const users = require('./config/users.js');
 const routes = require('./config/routes.js');
+const {
+    ConnectToMailbox,
+    DisconnectFromMailbox,
+} = require('./config/MailModel.js');
 
 const server = new Hapi.Server();
 server.connection({
@@ -46,6 +50,11 @@ server.start((err) => {
         console.log(err);
     }
     else {
+        ConnectToMailbox('test');
         console.log('server running at: ', server.info.uri);
     }
+});
+
+process.on('SIGINT', function() { // if process ends
+  DisconnectFromMailbox();
 });

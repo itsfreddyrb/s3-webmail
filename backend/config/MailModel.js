@@ -19,8 +19,8 @@ const mailSchema = mongoose.Schema({
 const Mail = mongoose.model('Mail', mailSchema);
 Mail.find = promisify(Mail.find);
 
-const connect = () => {
-    mongoose.connect('mongodb://localhost/test', {
+const connect = (dbName) => {
+    mongoose.connect('mongodb://localhost/' + dbName, {
         useMongoClient: true,
     });
 }
@@ -32,5 +32,5 @@ const disconnect = () => {
 module.exports = {
     ConnectToMailbox: connect,
     DisconnectFromMailbox: disconnect,
-    Messages: Mail,
+    Mail: Mail,
 }
