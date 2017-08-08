@@ -33,7 +33,17 @@ module.exports = [
         method: 'POST',
         path: '/sendmail/',
         handler: (req, reply) => {
-            return null;
+            sendMail({
+                toAddresses: [req.payload.to],
+                from: req.payload.from,
+                subject: req.payload.subject,
+                text: req.payload.text,
+            }).then((data) => {
+                reply(data);
+            }).catch((err) => {
+                reply(err);
+            });
+
         }
     },
 ];
