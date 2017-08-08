@@ -1,19 +1,13 @@
-const getNewMessages = require('s3-emails-to-mongo');
-const { Mail } = require('../config/MailModel');
-// const getMessages = require('../fn/getMessages.js');
-
-getNewMessages.config({
-    credentials: 'shared',
-    bucketName: 'zhillb-mail',
-    database: 'test',
-});
+const getMail = require('../fn/getMail.js');
+const getNew = require('../fn/getNewMail.js');
+const sendMail = require('../fn/sendMail.js');
 
 module.exports = [
     {
         method: 'GET',
         path: '/messages/',
         handler: (req, reply) => {
-            Mail.find({})
+            getMail()
             .then((messages) => {
                 reply(messages);
             })
@@ -26,11 +20,13 @@ module.exports = [
         method: 'GET',
         path: '/getnew/',
         handler: (req, reply) => {
-            getNewMessages().then((data) => {
-                reply(data);
-            }).catch((err) => {
-                reply(err);
+            getNew()
+            .then((newMessages) => {
+                reply(newMessages);
             })
+            .catch((err) => {
+                reply(err);
+            });
         },
     },
     {
