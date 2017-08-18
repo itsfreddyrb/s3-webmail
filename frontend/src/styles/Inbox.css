@@ -1,0 +1,17 @@
+.layout .inbox {
+    flex-direction: column;
+}
+
+.inbox .message {
+    flex-direction: row;
+}
+
+.inbox .message .subject {
+    flex-grow: 2;
+}
+
+.inbox .message .from,
+.inbox .message .to,
+.inbox .message .text {
+    flex-grow: 1;
+}

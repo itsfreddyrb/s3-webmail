@@ -14,6 +14,7 @@ server.connection({
     routes: {
         cors: {
             origin: ['*'],
+            credentials: true,
         },
     },
 });
