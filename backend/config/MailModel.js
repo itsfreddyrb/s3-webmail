@@ -14,6 +14,7 @@ const mailSchema = mongoose.Schema({
     references: String,
     text: String,
     attachments: Array,
+    type: String,
 });
 
 const Mail = mongoose.model('Mail', mailSchema);
