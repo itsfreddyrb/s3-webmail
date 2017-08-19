@@ -8,7 +8,7 @@ const Inbox = (props) => {
         <div className="inbox">
             {messages.map((msg) => {
                 return (
-                    <div className="msg">
+                    <div className="msg" key={msg._id}>
                         <span>{msg.subject}</span>
                         --
                         <span>{msg.from}</span>
