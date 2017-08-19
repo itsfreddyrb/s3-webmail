@@ -2,8 +2,7 @@ import React from 'react';
 import '../styles/Inbox.css';
 
 const Inbox = (props) => {
-    console.log(props);
-    const messageTextLength = 20;
+    const messageTextLength = 30;
     const { messages } = props.messages;
     return (
         <div className="inbox">
