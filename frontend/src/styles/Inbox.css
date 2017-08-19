@@ -1,17 +1,40 @@
-.layout .inbox {
+.inbox {
+    display: flex;
     flex-direction: column;
+    flex-flow: column nowrap;
+    flex-wrap: nowrap;
+    font-family: ubuntu;
+    margin: 0 auto;
+    width: 85%;
 }
 
-.inbox .message {
+.inbox .headers {
+    font-size: 120%;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.inbox .message, .inbox .headers {
+    border: 1px solid transparent;
+    display: flex;
     flex-direction: row;
+    flex-flow: row;
+    justify-content: space-around;
+    padding: 5px 0;
 }
 
-.inbox .message .subject {
-    flex-grow: 2;
+.message:hover {
+    background-color: #efeaf4;
+    border: 1px solid #e0d6ea;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: .8;
 }
 
-.inbox .message .from,
-.inbox .message .to,
-.inbox .message .text {
+.subject,
+.from,
+.date,
+.text {
     flex-grow: 1;
+    width: 25%;
 }
