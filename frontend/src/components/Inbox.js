@@ -2,10 +2,20 @@ import React from 'react';
 import '../styles/Inbox.css';
 
 const Inbox = (props) => {
-    console.log('props: ', props);
+    console.log('props from inbox: ', props);
+    const { messages } = props.messages;
     return (
         <div className="inbox">
-            typeof props.state: {typeof(props.state)}
+            {messages.map((msg) => {
+                return (
+                    <div className="msg">
+                        <span>{msg.subject}</span>
+                        --
+                        <span>{msg.from}</span>
+                        <br />
+                    </div>
+                )
+            })}
         </div>
     );
 };
