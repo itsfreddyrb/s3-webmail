@@ -31,10 +31,10 @@
     opacity: .8;
 }
 
-.subject,
-.from,
-.date,
-.text {
+.message .subject, .headers .subject,
+.message .from, .headers .from,
+.message .date, .headers .date,
+.message .text, .headers .text {
     flex-grow: 1;
     width: 25%;
 }

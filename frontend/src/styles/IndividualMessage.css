@@ -1,0 +1,17 @@
+.IndividualMessage {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    margin: 0 auto;
+    justify-content: flex-start;
+    text-align: center;
+    width: 85%;
+}
+
+.IndividualMessage div {
+    flex-grow: 1;
+}
+
+.IndividualMessage div span {
+    font-weight: bold;
+}
