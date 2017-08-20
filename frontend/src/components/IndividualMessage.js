@@ -12,11 +12,26 @@ const IndividualMessage = (props) => {
             return null;
         }
     });
+
+    const BackButton = () => {
+        const goBack = () => {
+            props.goBack();
+        };
+        return (
+            <i className="fa fa-arrow-left fa-2x pointer"
+                aria-hidden="true"
+                onClick={goBack}
+                ></i>
+        );
+    };
+
     return (
-        <div>
+        <div className="inbox">
             {filteredMessages.map((msg) => {
                 return (
                     <div className="IndividualMessage" key={msg._id}>
+                        <h1>Message</h1>
+
                         <div className="from">
                             <span>From:</span>
                             {msg.from}
@@ -33,6 +48,7 @@ const IndividualMessage = (props) => {
                             <span>Text:</span>
                             {msg.text}
                         </div>
+                        <BackButton />
                     </div>
                 )
             })}

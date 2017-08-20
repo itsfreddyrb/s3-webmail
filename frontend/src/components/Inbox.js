@@ -4,6 +4,12 @@ import '../styles/Inbox.css';
 const Inbox = (props) => {
     const messageTextLength = 30;
     const { messages } = props.messages;
+
+    const handleClick = (event) => {
+        // event.preventDefault();
+        console.log(event.currentTarget);
+    }
+
     return (
         <div className="inbox">
             <h1>Inbox</h1>
@@ -14,8 +20,9 @@ const Inbox = (props) => {
                 <div className="date">date</div>
             </div>
             {messages.map((msg) => {
+                const msgRoute = `/inbox/${msg._id}`;
                 return (
-                    <div className="message" key={msg._id}>
+                    <a href={msgRoute} className="message" key={msg._id} onClick={handleClick}>
                         <div className="subject">{msg.subject}</div>
                         <div className="from">{msg.from}</div>
                         <div className="text">
@@ -23,8 +30,8 @@ const Inbox = (props) => {
                         </div>
                         <div className="date">{msg.date}</div>
                         <br />
-                    </div>
-                )
+                    </a>
+                );
             })}
         </div>
     );

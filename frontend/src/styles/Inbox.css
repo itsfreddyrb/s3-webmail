@@ -38,3 +38,8 @@
     flex-grow: 1;
     width: 25%;
 }
+
+a.message {
+    color: inherit;
+    text-decoration: inherit;
+}

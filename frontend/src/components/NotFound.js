@@ -6,7 +6,7 @@ const SadFace = () => {
     return (
         <i className="fa fa-frown-o fa-4x" aria-hidden="true"></i>
     );
-}
+};
 
 const PageNotFound = () => {
     return (

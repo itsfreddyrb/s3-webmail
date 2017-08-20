@@ -33,12 +33,17 @@ export default class App extends Component {
     constructor() {
         super();
         getMessages(store.dispatch);
+        this.changeRoute = this.changeRouteFunc.bind(this);
         // re-render page on route change
         history.listen(() => {
             this.render();
         });
     }
+    changeRouteFunc(newRoute) {
+        history.push(newRoute);
+        this.render();
+    }
     render() {
-        return renderRoutes(history, this.props);
+        return renderRoutes(history, this.props, this.changeRoute);
     }
 }

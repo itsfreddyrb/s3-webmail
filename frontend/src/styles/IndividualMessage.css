@@ -4,14 +4,20 @@
     flex-flow: column;
     margin: 0 auto;
     justify-content: flex-start;
-    text-align: center;
     width: 85%;
 }
 
 .IndividualMessage div {
     flex-grow: 1;
+    padding-bottom: 25px;
 }
 
 .IndividualMessage div span {
+    display: block;
     font-weight: bold;
+    padding-bottom: 4px;
+}
+
+.pointer {
+    cursor: pointer;
 }
