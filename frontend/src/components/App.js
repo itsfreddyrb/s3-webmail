@@ -6,10 +6,14 @@ import store from '../redux/store';
 
 // routing
 import history from '../routing/history';
-import renderRoutes from '../routing/renderRoutes';
 
 // redux actions
 import { getMessages } from '../redux/actions/MailActions';
+
+// custom components
+import Inbox from '../components/Inbox';
+import PageNotFound from '../components/NotFound';
+import IndividualMessage from '../components/IndividualMessage';
 
 // icons
 import '../../node_modules/font-awesome/css/font-awesome.css';
@@ -33,17 +37,45 @@ export default class App extends Component {
     constructor() {
         super();
         getMessages(store.dispatch);
-        this.changeRoute = this.changeRouteFunc.bind(this);
         // re-render page on route change
         history.listen(() => {
             this.render();
         });
     }
-    changeRouteFunc(newRoute) {
+    changeRoute(newRoute) {
         history.push(newRoute);
         this.render();
     }
     render() {
-        return renderRoutes(history, this.props, this.changeRoute);
+        const path = history.location.pathname;
+        const changeRoute = this.changeRoute.bind(this);
+        const goBack = history.goBack.bind(this);
+
+        // router
+        if (path === '/') {
+            this.changeRoute('/inbox/');
+            return null;
+        }
+        else if (path === '/inbox/') {
+            return (
+                <Inbox
+                    messages={this.props}
+                    changeRoute={changeRoute}
+                />
+            );
+        }
+        else if (path.substr(0, 7) === '/inbox/') {
+            const msgId = path.substr(7);
+            return (
+                <IndividualMessage
+                    messages={this.props}
+                    id={msgId}
+                    goBack={goBack}
+                />
+            );
+        }    
+        else {
+            return <PageNotFound />
+        }
     }
 }

@@ -16,6 +16,7 @@
     display: block;
     font-weight: bold;
     padding-bottom: 4px;
+    text-transform: uppercase;
 }
 
 .pointer {

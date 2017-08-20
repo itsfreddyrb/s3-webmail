@@ -33,19 +33,19 @@ const IndividualMessage = (props) => {
                         <h1>Message</h1>
 
                         <div className="from">
-                            <span>From:</span>
+                            <span>From</span>
                             {msg.from}
                         </div>
                         <div className="to">
-                            <span>To:</span>
+                            <span>To</span>
                             {msg.to}
                         </div>
                         <div className="subject">
-                            <span>Subject:</span>
+                            <span>Subject</span>
                             {msg.subject}
                         </div>
                         <div className="text">
-                            <span>Text:</span>
+                            <span>Text</span>
                             {msg.text}
                         </div>
                         <BackButton />
