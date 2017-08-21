@@ -6,7 +6,8 @@ const Inbox = (props) => {
     const { messages } = props.messages;
 
     const handleClick = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
+        props.changeRoute(event.currentTarget.pathname)
         console.log(event.currentTarget);
     }
 

@@ -25,3 +25,16 @@ export function getMessages(dispatch) {
         })
     });
 }
+
+export function getNewMessages(dispatch) {
+    dispatch((dispatch) => {
+        dispatch({ type: 'GET_NEW_MAIL' });
+        ajax.get('/getnew/')
+        .then((response) => {
+            getMessages(dispatch);
+        })
+        .catch((err) => {
+            console.log('err', err);
+        })
+    });
+}

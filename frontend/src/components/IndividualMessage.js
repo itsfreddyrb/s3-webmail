@@ -14,7 +14,7 @@ const IndividualMessage = (props) => {
     });
 
     const BackButton = () => {
-        const goBack = () => {
+        const goBack = (event) => {
             props.goBack();
         };
         return (

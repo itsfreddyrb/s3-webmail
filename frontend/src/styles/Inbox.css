@@ -43,3 +43,7 @@ a.message {
     color: inherit;
     text-decoration: inherit;
 }
+
+a.unread {
+    font-weight: bold;
+}
