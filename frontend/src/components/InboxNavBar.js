@@ -1,10 +1,12 @@
 import React from 'react';
 
+import history from '../routing/history';
+
 import '../styles/InboxNavBar.css';
 
 const InboxNavBar = (props) => {
     const goToCompose = () => {
-        props.changeRoute('/compose/');
+        history.push('/compose/');
     }
     return (
         <div className="navbar">

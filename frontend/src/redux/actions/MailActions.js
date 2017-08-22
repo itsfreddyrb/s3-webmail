@@ -38,3 +38,17 @@ export function getNewMessages(dispatch) {
         })
     });
 }
+
+export function sendMail(msg) {
+    const { to, subject, text } = msg;
+    ajax.post('/sendmail/', {
+        to,
+        from: auth.default_email,
+        subject,
+        text,
+    }).then((data) => {
+        console.log('email sent');
+    }).catch((err) => {
+        console.log(err);
+    });
+}

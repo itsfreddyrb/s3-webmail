@@ -8,16 +8,18 @@ import store from '../redux/store';
 import history from '../routing/history';
 
 // redux actions
-import { getMessages, getNewMessages } from '../redux/actions/MailActions';
+import { getMessages, getNewMessages, sendMail } from '../redux/actions/MailActions';
 
 // custom components
+import Compose from '../components/Compose';
 import Inbox from '../components/Inbox';
-import PageNotFound from '../components/NotFound';
 import IndividualMessage from '../components/IndividualMessage';
-import InboxNavBar from '../components/InboxNavBar';
+import PageNotFound from '../components/NotFound';
+
 
 // icons
 import '../../node_modules/font-awesome/css/font-awesome.css';
+import '../styles/App.css';
 
 // connect props & dispatch to component
 @connect((store) => {
@@ -48,31 +50,28 @@ export default class App extends Component {
             this.setState({ route: history.location.pathname });
         });
     }
-    changeRoute(newRoute) {
-        history.push(newRoute);
-    }
     getNewMail() {
         getNewMessages(store.dispatch);
     }
     render() {
         const path = history.location.pathname;
-        const changeRoute = this.changeRoute.bind(this);
-        const getNewMessages = this.getNewMail.bind(this);
-        const goBack = history.goBack.bind(this);
-        const isInboxWithID = (path.substr(0, 7) === '/inbox/');
-
+        const getNewMail = this.getNewMail.bind(this);
         // components
+        const composePath = () => {
+            return (
+                <div>
+                    <Compose
+                        sendMail={sendMail}
+                    />
+                </div>
+            );
+        }
         const inboxPath = () => {
             return (
                 <div>
-                    <InboxNavBar
-                        changeRoute={changeRoute}
-                        getNewMessages={getNewMessages}
-
-                    />
                     <Inbox
                         messages={this.props}
-                        changeRoute={changeRoute}
+                        getNewMessages={getNewMail}
                     />
                 </div>
 
@@ -84,7 +83,6 @@ export default class App extends Component {
                 <IndividualMessage
                     messages={this.props}
                     id={msgId}
-                    goBack={goBack}
                 />
             );
         };
@@ -96,14 +94,18 @@ export default class App extends Component {
 
         // router
         if (this.state.route === '/') {
-            this.changeRoute('/inbox/');
+            history.push('/inbox/');
             return null;
         }
         else if (this.state.route === '/inbox/') {
             return inboxPath();
         }
-        else if (isInboxWithID) {
+        // route is /inbox/:id
+        else if (path.substr(0, 7) === '/inbox/') {
             return individualMessagePath();
+        }
+        else if (this.state.route === '/compose/') {
+            return composePath();
         }
         else {
             return pageNotFoundPath();

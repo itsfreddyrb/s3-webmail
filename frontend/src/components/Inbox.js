@@ -1,4 +1,8 @@
 import React from 'react';
+
+import history from '../routing/history';
+import InboxNavBar from './InboxNavBar';
+
 import '../styles/Inbox.css';
 
 const Inbox = (props) => {
@@ -7,12 +11,12 @@ const Inbox = (props) => {
 
     const handleClick = (event) => {
         event.preventDefault();
-        props.changeRoute(event.currentTarget.pathname)
-        console.log(event.currentTarget);
+        history.push(event.currentTarget.pathname)
     }
 
     return (
         <div className="inbox">
+            <InboxNavBar />
             <h1>Inbox</h1>
             <div className="headers">
                 <div className="subject">subject</div>

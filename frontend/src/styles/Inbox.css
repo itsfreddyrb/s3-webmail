@@ -3,9 +3,6 @@
     flex-direction: column;
     flex-flow: column nowrap;
     flex-wrap: nowrap;
-    font-family: ubuntu;
-    margin: 0 auto;
-    width: 85%;
 }
 
 .inbox .headers {
