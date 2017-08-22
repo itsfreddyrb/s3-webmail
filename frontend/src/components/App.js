@@ -70,7 +70,7 @@ export default class App extends Component {
             return (
                 <div>
                     <Inbox
-                        messages={this.props}
+                        messages={this.props.messages}
                         getNewMessages={getNewMail}
                     />
                 </div>
@@ -78,7 +78,7 @@ export default class App extends Component {
             );
         };
         const individualMessagePath = () => {
-            const msgId = this.state.route.substr(7);
+            const msgId = this.state.route.substr(9);
             return (
                 <IndividualMessage
                     messages={this.props}
@@ -100,8 +100,8 @@ export default class App extends Component {
         else if (this.state.route === '/inbox/') {
             return inboxPath();
         }
-        // route is /inbox/:id
-        else if (path.substr(0, 7) === '/inbox/') {
+        // route is /message/:id
+        else if (path.substr(0, 9) === '/message/' && path !== '/message/') {
             return individualMessagePath();
         }
         else if (this.state.route === '/compose/') {

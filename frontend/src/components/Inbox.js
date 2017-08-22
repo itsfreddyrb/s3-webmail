@@ -16,7 +16,7 @@ const Inbox = (props) => {
                 <div className="text">message</div>
                 <div className="date">date</div>
             </div>
-            {props.messages.messages.map((msg) => {
+            {props.messages.map((msg) => {
                 return <Message msg={msg} key={msg._id} />
             })}
         </div>

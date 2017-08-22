@@ -9,12 +9,13 @@ export default (props) => {
     const showChars = 30;
     const handleClick = (event) => {
         event.preventDefault();
-        history.push(event.currentTarget.pathname)
+        const msgRoute = event.currentTarget.getAttribute('data-route');
+        history.push(msgRoute)
     }
-    const msgRoute = `/inbox/${msg._id}`;
+    const msgRoute = `/message/${msg._id}`;
     return (
-        <a
-            href={msgRoute}
+        <div
+            data-route={msgRoute}
             className="message"
             onClick={handleClick}
         >
@@ -25,6 +26,6 @@ export default (props) => {
             </div>
             <Date date={msg.date} />
             <br />
-        </a>
+        </div>
     );
 }

@@ -36,11 +36,6 @@
     padding: 3px 7px;
 }
 
-a.message {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-a.unread {
+.message.unread {
     font-weight: bold;
 }
