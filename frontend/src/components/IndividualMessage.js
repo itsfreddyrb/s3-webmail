@@ -18,7 +18,7 @@ const IndividualMessage = (props) => {
     return (
         <div className="inbox">
             {filteredMessages.map((msg) => {
-                const replyTo = msg.from;
+                // const replyTo = msg.from;
                 return (
                     <div className="IndividualMessageContainer" key={msg._id}>
                         <BackButton />

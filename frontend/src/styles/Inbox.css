@@ -25,7 +25,6 @@
     border: 1px solid #e0d6ea;
     border-radius: 3px;
     cursor: pointer;
-    opacity: .8;
 }
 
 .message .subject, .headers .subject,
@@ -34,6 +33,7 @@
 .message .text, .headers .text {
     flex-grow: 1;
     width: 25%;
+    padding: 3px 7px;
 }
 
 a.message {

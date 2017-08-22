@@ -52,3 +52,10 @@ export function sendMail(msg) {
         console.log(err);
     });
 }
+
+export function markAsRead(id) {
+    ajax.post('/markasread/', {
+        id 
+    })
+    return null;
+}
