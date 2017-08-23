@@ -1,13 +1,10 @@
 import React from 'react';
 
 const ReplyToButton = (props) => {
-    const replyTo = (event) => {
-        
-    };
     return (
         <i className="fa fa-reply"
             aria-hidden="true"
-            onClick={replyTo}
+            onClick={props.replyToClick}
             ></i>
     );
 };

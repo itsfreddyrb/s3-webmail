@@ -87,8 +87,9 @@ export default class App extends Component {
             const msgId = this.state.route.substr(9);
             return (
                 <IndividualMessage
-                    messages={this.props}
+                    messages={this.props.messages}
                     id={msgId}
+                    sendMail={sendMail}
                 />
             );
         };

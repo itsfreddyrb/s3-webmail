@@ -14,7 +14,6 @@ export default (props) => {
         msg.unread = false;
         props.markAsRead(msg._id)
     }
-    console.log('props: ', props);
     const msgRoute = `/message/${msg._id}`;
     let unreadStatusClassName = 'message';
     if (msg.unread === true) {
