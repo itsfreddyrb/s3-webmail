@@ -10,14 +10,21 @@ export default (props) => {
     const handleClick = (event) => {
         event.preventDefault();
         const msgRoute = event.currentTarget.getAttribute('data-route');
-        history.push(msgRoute)
+        history.push(msgRoute);
+        msg.unread = false;
+        props.markAsRead(msg._id)
     }
+    console.log('props: ', props);
     const msgRoute = `/message/${msg._id}`;
+    let unreadStatusClassName = 'message';
+    if (msg.unread === true) {
+        unreadStatusClassName += ' unread';
+    }
     return (
         <div
             data-route={msgRoute}
-            className="message"
             onClick={handleClick}
+            className={unreadStatusClassName}
         >
             <div className="subject">{msg.subject}</div>
             <div className="from">{msg.from}</div>

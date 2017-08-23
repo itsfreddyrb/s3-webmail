@@ -15,7 +15,7 @@ const mailSchema = mongoose.Schema({
     text: String,
     attachments: Array,
     type: String,
-    read: Boolean,
+    unread: Boolean,
 });
 
 const Mail = mongoose.model('Mail', mailSchema);

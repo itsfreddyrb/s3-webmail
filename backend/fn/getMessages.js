@@ -1,8 +1,4 @@
-const {
-    Mail,
-    ConnectToMailbox,
-    DisconnectFromMailbox,
-} = require('../config/MailModel.js');
+const { Mail } = require('../config/MailModel.js');
 
 const getMessages = () => {
     return new Promise((fulfill, reject) => {

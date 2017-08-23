@@ -26,6 +26,7 @@ export default class Compose extends Component {
     }
     render() {
         const handleSubmit = this.handleSubmit.bind(this);
+        
         return (
             <div className="composeContainer">
                 <BackButton />
@@ -37,6 +38,7 @@ export default class Compose extends Component {
                                     placeholder="To..."
                                     type="text"
                                     ref="to"
+
                                 />
                             </div>
                             <div>
@@ -44,6 +46,7 @@ export default class Compose extends Component {
                                     placeholder="Subject..."
                                     type="text"
                                     ref="subject"
+
                                 />
                             </div>
                             <div>

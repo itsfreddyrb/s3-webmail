@@ -8,7 +8,9 @@ import '../styles/Inbox.css';
 const Inbox = (props) => {
     return (
         <div className="inbox">
-            <InboxNavBar />
+            <InboxNavBar
+                getNewMessages={props.getNewMessages}
+            />
             <h1>Inbox</h1>
             <div className="headers">
                 <div className="subject">subject</div>
@@ -17,7 +19,13 @@ const Inbox = (props) => {
                 <div className="date">date</div>
             </div>
             {props.messages.map((msg) => {
-                return <Message msg={msg} key={msg._id} />
+                return (
+                    <Message
+                        msg={msg}
+                        markAsRead={props.markAsRead}
+                        key={msg._id}
+                    />
+                );
             })}
         </div>
     );

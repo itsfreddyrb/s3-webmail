@@ -8,7 +8,12 @@ import store from '../redux/store';
 import history from '../routing/history';
 
 // redux actions
-import { getMessages, getNewMessages, sendMail } from '../redux/actions/MailActions';
+import {
+    getMessages,
+    getNewMessages,
+    sendMail,
+    markAsRead,
+} from '../redux/actions/MailActions';
 
 // custom components
 import Compose from '../components/Compose';
@@ -72,6 +77,7 @@ export default class App extends Component {
                     <Inbox
                         messages={this.props.messages}
                         getNewMessages={getNewMail}
+                        markAsRead={markAsRead}
                     />
                 </div>
 

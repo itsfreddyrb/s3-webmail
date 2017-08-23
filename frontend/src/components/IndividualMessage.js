@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BackButton from './BackButton';
+import ReplyToButton from './ReplyToButton';
 
 import '../styles/IndividualMessage.css';
 
@@ -18,12 +19,17 @@ const IndividualMessage = (props) => {
     return (
         <div className="inbox">
             {filteredMessages.map((msg) => {
-                // const replyTo = msg.from;
                 return (
                     <div className="IndividualMessageContainer" key={msg._id}>
                         <BackButton />
-                        <h1>Message</h1>
+
+                        <h1>Message
+                            <ReplyToButton
+
+                             />
+                        </h1>
                         <div className="IndividualMessage">
+
                             <div className="from">
                                 <span>From</span>
                                 <p>

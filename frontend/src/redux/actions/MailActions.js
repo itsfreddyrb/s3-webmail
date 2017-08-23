@@ -54,8 +54,7 @@ export function sendMail(msg) {
 }
 
 export function markAsRead(id) {
-    ajax.post('/markasread/', {
-        id 
-    })
-    return null;
+    ajax.put('/markasread/', {
+        id
+    });
 }

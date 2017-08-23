@@ -6,7 +6,7 @@
     "hapi-auth-basic": "^4.2.0",
     "mailparser": "^2.0.5",
     "mongoose": "^4.11.5",
-    "s3-emails-to-mongo": "^1.0.6",
+    "s3-emails-to-mongo": "^1.0.8",
     "util": "^0.10.3"
   }
 }

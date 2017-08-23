@@ -1,6 +1,7 @@
 const getMail = require('../fn/getMail.js');
 const getNew = require('../fn/getNewMail.js');
 const sendMail = require('../fn/sendMail.js');
+const markMailAsRead = require('../fn/markMailAsRead.js');
 
 module.exports = [
     {
@@ -46,4 +47,11 @@ module.exports = [
 
         }
     },
+    {
+        method: 'PUT',
+        path: '/markasread/',
+        handler: (req, reply) => {
+            markMailAsRead(req.payload.id);
+        }
+    }
 ];

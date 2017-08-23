@@ -18,3 +18,7 @@
     padding-bottom: 4px;
     text-transform: uppercase;
 }
+
+h1 i {
+    float: right;
+}
