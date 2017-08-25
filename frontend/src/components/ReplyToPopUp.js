@@ -24,20 +24,32 @@ export default class ReplyToPopUp extends Component {
             return (
                 <form className="replyPopUp">
                     <div className="box">
-                        <div>To: {to}</div>
-                        <div>Subject: {subject}</div>
-                        <div>Message:</div>
-                        <textarea
-                            ref="reply"
-                        ></textarea>
-                        <button
-                            type="submit"
+                        <i
+                            className="fa fa-window-close closeButton"
+                            aria-hidden="true"
+                            onClick={closePopUp}
+                        ></i>
+                        <div>
+                            <strong>To:</strong>
+                            {to}
+                        </div>
+                        <div>
+                            <strong>Subject:</strong>
+                            {subject}
+                        </div>
+                        <div>
+                            <textarea
+                                ref="reply"
+                            ></textarea>
+                        </div>
+
+                        <i
+                            className="fa fa-paper-plane sendIcon"
+                            aria-hidden="true"
                             onClick={handleSubmit}
-                        >
-                            Reply!
-                        </button>
+                        >Send</i>
                     </div>
-                    <button onClick={closePopUp}>Cancel</button>
+
                 </form>
             );
         }
