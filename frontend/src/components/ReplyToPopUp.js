@@ -21,6 +21,45 @@ export default class ReplyToPopUp extends Component {
         const { to } = this.props;
         const subject = 'RE: ' + this.props.subject;
         if (this.props.show) {
+            let ToComponent, SubjectComponent;
+            if (this.props.to) {
+                ToComponent = () => {
+                    return (
+                        <div>
+                            <strong>To:</strong>
+                            {to}
+                        </div>
+                    )
+                }
+            }
+            else {
+                ToComponent = () => {
+                    return (
+                        <div>
+                            <input type="text" />
+                        </div>
+                    )
+                }
+            }
+            if (this.props.subject) {
+                SubjectComponent = () => {
+                    return (
+                        <div>
+                            <strong>Subject:</strong>
+                            {subject}
+                        </div>
+                    )
+                }
+            }
+            else {
+                SubjectComponent = () => {
+                    return (
+                        <div>
+                            <input type="text" />
+                        </div>
+                    )
+                }
+            }
             return (
                 <form className="replyPopUp">
                     <div className="box">
@@ -29,14 +68,8 @@ export default class ReplyToPopUp extends Component {
                             aria-hidden="true"
                             onClick={closePopUp}
                         ></i>
-                        <div>
-                            <strong>To:</strong>
-                            {to}
-                        </div>
-                        <div>
-                            <strong>Subject:</strong>
-                            {subject}
-                        </div>
+                        <ToComponent />
+                        <SubjectComponent />
                         <div>
                             <textarea
                                 ref="reply"
