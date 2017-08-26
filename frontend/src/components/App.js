@@ -7,6 +7,9 @@ import store from '../redux/store';
 // routing
 import history from '../routing/history';
 
+// user config
+import config from '../config';
+
 // redux actions
 import {
     getMessages,
@@ -54,6 +57,9 @@ export default class App extends Component {
         history.listen(() => {
             this.setState({ route: history.location.pathname });
         });
+        // set auto check for new messages
+        const getNewMail = this.getNewMail.bind(this);
+        setTimeout(getNewMail, config.auto_reload_messages);
     }
     getNewMail() {
         getNewMessages(store.dispatch);

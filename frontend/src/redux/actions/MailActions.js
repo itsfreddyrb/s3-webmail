@@ -1,6 +1,7 @@
 import axios from 'axios-es6';
 
 import auth from '../../auth';
+import config from '../../config';
 
 const ajax = axios.create({
     baseURL: 'http://localhost:9001/',
@@ -43,7 +44,7 @@ export function sendMail(msg) {
     const { to, subject, text } = msg;
     ajax.post('/sendmail/', {
         to,
-        from: auth.default_email,
+        from: config.default_email,
         subject,
         text,
     }).then((data) => {
