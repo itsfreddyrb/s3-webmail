@@ -19,7 +19,6 @@ import {
 } from '../redux/actions/MailActions';
 
 // custom components
-import Compose from '../components/Compose';
 import Inbox from '../components/Inbox';
 import IndividualMessage from '../components/IndividualMessage';
 import PageNotFound from '../components/NotFound';
@@ -48,7 +47,9 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            route: history.location.pathname
+            route: history.location.pathname,
+            showComposeWindow: false,
+            showReplyWindow: false,
         };
         getMessages(store.dispatch);
     }
@@ -64,19 +65,37 @@ export default class App extends Component {
     getNewMail() {
         getNewMessages(store.dispatch);
     }
+    setComposeStateToShow() {
+      this.setState({
+        showComposeWindow: true,
+      });
+    }
+    setComposeStateToHide() {
+      this.setState({
+        showComposeWindow: false,
+      });
+    }
+    setReplyStateToShow() {
+      this.setState({
+        showReplyWindow: true,
+      });
+    }
+    setReplyStateToHide() {
+      this.setState({
+        showReplyWindow: false,
+      });
+    }
     render() {
         const path = history.location.pathname;
         const getNewMail = this.getNewMail.bind(this);
+
+        const setComposeStateToShow = this.setComposeStateToShow.bind(this);
+        const setComposeStateToHide = this.setComposeStateToHide.bind(this);
+
+        const setReplyStateToShow = this.setReplyStateToShow.bind(this);
+        const setReplyStateToHide = this.setReplyStateToHide.bind(this);
+
         // components
-        const composePath = () => {
-            return (
-                <div>
-                    <Compose
-                        sendMail={sendMail}
-                    />
-                </div>
-            );
-        }
         const inboxPath = () => {
             return (
                 <div>
@@ -84,6 +103,10 @@ export default class App extends Component {
                         messages={this.props.messages}
                         getNewMessages={getNewMail}
                         markAsRead={markAsRead}
+                        setComposeStateToShow={setComposeStateToShow}
+                        setComposeStateToHide={setComposeStateToHide}
+                        showComposeWindow={this.state.showComposeWindow}
+                        sendMail={sendMail}
                     />
                 </div>
 
@@ -96,6 +119,8 @@ export default class App extends Component {
                     messages={this.props.messages}
                     id={msgId}
                     sendMail={sendMail}
+                    setReplyStateToShow={setReplyStateToShow}
+                    setReplyStateToHide={setReplyStateToHide}
                 />
             );
         };
@@ -116,9 +141,6 @@ export default class App extends Component {
         // route is /message/:id
         else if (path.substr(0, 9) === '/message/' && path !== '/message/') {
             return individualMessagePath();
-        }
-        else if (this.state.route === '/compose/') {
-            return composePath();
         }
         else {
             return pageNotFoundPath();

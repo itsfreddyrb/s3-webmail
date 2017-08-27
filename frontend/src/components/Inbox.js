@@ -2,6 +2,8 @@ import React from 'react';
 
 import InboxNavBar from './InboxNavBar';
 import Message from './Message';
+import ComposeNewMail from './Compose';
+import PopUp from './PopUp';
 
 import '../styles/Inbox.css';
 
@@ -9,7 +11,9 @@ const Inbox = (props) => {
     return (
         <div className="inbox">
             <InboxNavBar
-                getNewMessages={props.getNewMessages}
+                getNewMessages = {props.getNewMessages}
+                showComposeWindow = {props.showComposeWindow}
+                setComposeStateToShow = {props.setComposeStateToShow}
             />
             <h1>Inbox</h1>
             <div className="headers">
@@ -27,6 +31,14 @@ const Inbox = (props) => {
                     />
                 );
             })}
+            <PopUp
+              show={props.showComposeWindow}
+              setComposeStateToHide={props.setComposeStateToHide}
+            >
+              <ComposeNewMail
+                sendMail={props.sendMail}
+              />
+            </PopUp>
         </div>
     );
 };
