@@ -54,8 +54,11 @@ export function sendMail(msg) {
     });
 }
 
-export function markAsRead(id) {
+export function markAsRead(msg) {
+  const { id, unread } = msg;
+  if (unread) {
     ajax.put('/markasread/', {
-        id
+      id
     });
+  }
 }
