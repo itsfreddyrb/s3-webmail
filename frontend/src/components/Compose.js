@@ -19,26 +19,32 @@ export default class Compose extends Component {
     return (
       <form
         className="compose"
-        onSubmit={handleSubmit}
       >
         <div>
-          To: <input ref="to" />
+          <strong>To:</strong>
+          <input ref="to" />
         </div>
         <div>
-          Cc: <input ref="cc" />
+          <strong>Cc:</strong>
+          <input ref="cc" />
         </div>
         <div>
-          Bcc: <input ref="bcc" />
+          <strong>Bcc:</strong>
+          <input ref="bcc" />
         </div>
         <div>
-          Subject: <input ref="subject" />
+          <strong>Subject:</strong>
+          <input ref="subject" />
         </div>
         <div>
+          <strong>Text:</strong>
           <textarea ref="text"></textarea>
         </div>
-        <button type="submit">
-          Send!
-        </button>
+        <i
+            className="fa fa-paper-plane sendIcon"
+            aria-hidden="true"
+            onClick={handleSubmit}
+        >Send</i>
       </form>
     );
   }

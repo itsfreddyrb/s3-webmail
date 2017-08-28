@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import BackButton from './BackButton';
 import ReplyToButton from './ReplyToButton';
-import ReplyToPopUp from './ReplyToPopUp';
+import ReplyPopUp from './ReplyPopUp';
 
 import '../styles/IndividualMessage.css';
 
@@ -10,7 +10,7 @@ class IndividualMessage extends Component {
     constructor() {
         super();
         this.state = {
-            replyTo: false,
+            showReply: false,
         };
     }
     componentWillMount() {
@@ -26,17 +26,17 @@ class IndividualMessage extends Component {
     }
     replyToClick(event) {
         this.setState({
-            replyTo: true,
+            showReply: true,
         });
     }
     closePopUp(event) {
         this.setState({
-            replyTo: false
+            showReply: false
         });
     }
     render() {
         const replyToClick = this.replyToClick.bind(this);
-        const closePopUp = this.closePopUp.bind(this);
+        const hideReply = this.closePopUp.bind(this);
         return (
             <div className="inbox">
                 {this.messages.map((msg) => {
@@ -77,9 +77,9 @@ class IndividualMessage extends Component {
                                 </div>
 
                             </div>
-                            <ReplyToPopUp
-                                show={this.state.replyTo}
-                                close={closePopUp}
+                            <ReplyPopUp
+                                show={this.state.showReply}
+                                hide={hideReply}
                                 to={msg.from}
                                 subject={msg.subject}
                                 sendMail={this.props.sendMail}

@@ -2,8 +2,7 @@ import React from 'react';
 
 import InboxNavBar from './InboxNavBar';
 import Message from './Message';
-import ComposeNewMail from './Compose';
-import PopUp from './PopUp';
+import ComposePopUp from './ComposePopUp';
 
 import '../styles/Inbox.css';
 
@@ -31,14 +30,11 @@ const Inbox = (props) => {
                     />
                 );
             })}
-            <PopUp
-              show={props.showComposeWindow}
+            <ComposePopUp
+              showComposeWindow={props.showComposeWindow}
               setComposeStateToHide={props.setComposeStateToHide}
-            >
-              <ComposeNewMail
-                sendMail={props.sendMail}
-              />
-            </PopUp>
+              sendMail={props.sendMail}
+            />
         </div>
     );
 };

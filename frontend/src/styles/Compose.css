@@ -4,7 +4,6 @@
   flex-flow: column nowrap;
   flex-wrap: nowrap;
   margin: 0 auto;
-  text-align: center;
   width: 50%;
 }
 
@@ -45,5 +44,14 @@
 }
 
 .compose strong {
-  padding-bottom: 5px;
+  display: inline-block;
+  padding: 6px;
+  padding-top: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+.compose .sendIcon {
+    font-size: 1.3em;
+    margin-top: 15px;
 }

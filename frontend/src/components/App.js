@@ -20,7 +20,7 @@ import {
 
 // custom components
 import Inbox from '../components/Inbox';
-import IndividualMessage from '../components/IndividualMessage';
+import MessagePage from '../components/MessagePage';
 import PageNotFound from '../components/NotFound';
 
 
@@ -115,7 +115,7 @@ export default class App extends Component {
         const individualMessagePath = () => {
             const msgId = this.state.route.substr(9);
             return (
-                <IndividualMessage
+                <MessagePage
                     messages={this.props.messages}
                     id={msgId}
                     sendMail={sendMail}

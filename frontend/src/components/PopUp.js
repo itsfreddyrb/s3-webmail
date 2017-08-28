@@ -11,7 +11,7 @@ const PopUp = (props) => {
                 <i
                     className="fa fa-window-close closeButton"
                     aria-hidden="true"
-                    onClick={props.setComposeStateToHide}
+                    onClick={props.hide}
                 ></i>
                   {props.children}
               </div>
