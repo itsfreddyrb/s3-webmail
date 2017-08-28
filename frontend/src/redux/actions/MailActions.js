@@ -41,10 +41,41 @@ export function getNewMessages(dispatch) {
 }
 
 export function sendMail(msg) {
-    const { to, subject, text } = msg;
+    const { to, bcc, cc, subject, text } = msg;
+    const splitByCommaAndTrim = (str) => {
+      return str.split(',').map((val) => {
+        return val.trim();
+      })
+    };
+    const getToAddresses = () => {
+      if (to !== '') {
+        return splitByCommaAndTrim(to);
+      }
+      else {
+        return [];
+      }
+    };
+    const getCcAddresses = () => {
+      if (cc !== '') {
+        return splitByCommaAndTrim(cc);
+      }
+      else {
+        return [];
+      }
+    };
+    const getBccAddresses = () => {
+      if (bcc !== '') {
+        return splitByCommaAndTrim(bcc);
+      }
+      else {
+        return [];
+      }
+    };
     ajax.post('/sendmail/', {
-        to,
+        to: getToAddresses(),
         from: config.default_email,
+        cc: getCcAddresses(),
+        bcc: getBccAddresses(),
         subject,
         text,
     }).then((data) => {

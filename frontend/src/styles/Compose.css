@@ -1,33 +1,49 @@
 .compose {
-    display: flex;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    flex-wrap: nowrap;
-    margin: 0 auto;
-    text-align: center;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
 }
 
 .compose form input, .compose form textarea {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    padding: 6px 12px;
-    width: 420px;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  width: 420px;
 }
 
 .compose form button {
-    background-color: #e7e7e7;; /* Green */
-    border: 1px solid #333333;
-    border-radius: 2px;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+  background-color: #e7e7e7;; /* Green */
+  border: 1px solid #333333;
+  border-radius: 2px;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.compose form button:hover {
-    background-color: #a6a6a6;
-    cursor: pointer;
+.compose button:hover {
+  background-color: #a6a6a6;
+  cursor: pointer;
+}
+
+
+.compose textarea {
+    height: 200px;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.compose input {
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.compose strong {
+  padding-bottom: 5px;
 }

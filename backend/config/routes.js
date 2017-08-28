@@ -35,8 +35,10 @@ module.exports = [
         path: '/sendmail/',
         handler: (req, reply) => {
             sendMail({
-                toAddresses: [req.payload.to],
+                to: req.payload.to,
                 from: req.payload.from,
+                cc: req.payload.cc,
+                bcc: req.payload.bcc,
                 subject: req.payload.subject,
                 text: req.payload.text,
             }).then((data) => {

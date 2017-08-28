@@ -16,7 +16,9 @@ module.exports = (mailObj) => {
         ses.sendEmail({
             Source: mailObj.from,
             Destination: {
-                ToAddresses: mailObj.toAddresses,
+                ToAddresses: mailObj.to,
+                CcAddresses: mailObj.cc,
+                BccAddresses: mailObj.bcc,
             },
             Message: {
                 Subject: {

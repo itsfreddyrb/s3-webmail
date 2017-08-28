@@ -58,4 +58,5 @@ server.start((err) => {
 
 process.on('SIGINT', function() { // if process ends
   DisconnectFromMailbox();
+  server.stop();
 });
