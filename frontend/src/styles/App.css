@@ -1,25 +1,25 @@
 #root {
-    font-family: ubuntu;
-    margin: 0 auto;
-    margin-top: 18px;
-    width: 85%;
+  font-family: ubuntu;
+  margin: 0 auto;
+  margin-top: 18px;
+  width: 85%;
 }
 
 h1 {
-    background-color: #d6ebf2;
-    padding: 10px 15px;
+  background-color: #d6ebf2;
+  padding: 10px 15px;
 }
 
 i.fa {
-    margin: 0 12px;
-    color: #444;
+  margin: 0 12px;
+  color: #444;
 }
 
 i.fa:hover {
-    color: black;
-    cursor: pointer;
+  color: black;
+  cursor: pointer;
 }
 
 .smallNav {
-    width: 75%;
+  width: 75%;
 }

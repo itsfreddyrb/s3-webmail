@@ -22,7 +22,7 @@ npm manifest:
       "hapi-auth-basic": "^4.2.0",
       "mailparser": "^2.0.5",
       "mongoose": "^4.11.5",
-      "s3-emails-to-mongo": "^1.0.2",
+      "s3-emails-to-mongo": "^1.0.9",
       "util": "^0.10.3"
     }
   }
@@ -1006,9 +1006,9 @@ Lockfile:
     dependencies:
       glob "^7.0.5"
   
-  s3-emails-to-mongo@^1.0.2:
-    version "1.0.2"
-    resolved "https://registry.yarnpkg.com/s3-emails-to-mongo/-/s3-emails-to-mongo-1.0.2.tgz#e9bfa28ab60adf2f6ee3b39ebf180146b7347991"
+  s3-emails-to-mongo@^1.0.9:
+    version "1.0.9"
+    resolved "https://registry.yarnpkg.com/s3-emails-to-mongo/-/s3-emails-to-mongo-1.0.9.tgz#6830a0d09b3742b24ae2a76ec9f8d7e914240912"
     dependencies:
       aws-sdk "^2.94.0"
       mailparser "^2.0.5"
@@ -1253,7 +1253,7 @@ Lockfile:
       lodash "^4.0.0"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/s3-emails-to-mongo/-/s3-emails-to-mongo-1.0.5.tgz: invalid tar file
+  Error: https://registry.yarnpkg.com/s3-emails-to-mongo/-/s3-emails-to-mongo-1.1.0.tgz: invalid tar file
       at Extract.Parse._startEntry (/usr/local/lib/node_modules/yarn/node_modules/tar/lib/parse.js:149:13)
       at Extract.Parse._process (/usr/local/lib/node_modules/yarn/node_modules/tar/lib/parse.js:131:12)
       at BlockStream.<anonymous> (/usr/local/lib/node_modules/yarn/node_modules/tar/lib/parse.js:47:8)

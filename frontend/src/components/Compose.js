@@ -19,7 +19,7 @@ export default class Compose extends Component {
     return (
       <form
         className="compose"
-      >
+        >
         <div>
           <strong>To:</strong>
           <input ref="to" />
@@ -41,10 +41,10 @@ export default class Compose extends Component {
           <textarea ref="text"></textarea>
         </div>
         <i
-            className="fa fa-paper-plane sendIcon"
-            aria-hidden="true"
-            onClick={handleSubmit}
-        >Send</i>
+          className="fa fa-paper-plane sendIcon"
+          aria-hidden="true"
+          onClick={handleSubmit}
+          >Send</i>
       </form>
     );
   }

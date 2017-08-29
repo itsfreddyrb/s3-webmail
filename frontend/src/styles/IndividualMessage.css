@@ -1,24 +1,24 @@
 .IndividualMessage {
-    display: flex;
-    flex-direction: column;
-    flex-flow: column;
-    justify-content: flex-start;
-    margin: 0 auto;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  justify-content: flex-start;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .IndividualMessage div {
-    flex-grow: 1;
-    padding-bottom: 25px;
+  flex-grow: 1;
+  padding-bottom: 25px;
 }
 
 .IndividualMessage div span {
-    display: block;
-    font-weight: bold;
-    padding-bottom: 4px;
-    text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  padding-bottom: 4px;
+  text-transform: uppercase;
 }
 
 h1 i {
-    float: right;
+  float: right;
 }

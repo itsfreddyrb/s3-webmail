@@ -1,41 +1,41 @@
 .inbox {
-    display: flex;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  flex-wrap: nowrap;
 }
 
 .inbox .headers {
-    font-size: 120%;
-    font-weight: bold;
-    text-transform: uppercase;
+  font-size: 120%;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .inbox .message, .inbox .headers {
-    border: 1px solid transparent;
-    display: flex;
-    flex-direction: row;
-    flex-flow: row;
-    justify-content: space-around;
-    padding: 5px 0;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  justify-content: space-around;
+  padding: 5px 0;
 }
 
 .message:hover {
-    background-color: #efeaf4;
-    border: 1px solid #e0d6ea;
-    border-radius: 3px;
-    cursor: pointer;
+  background-color: #efeaf4;
+  border: 1px solid #e0d6ea;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .message .subject, .headers .subject,
 .message .from, .headers .from,
 .message .date, .headers .date,
 .message .text, .headers .text {
-    flex-grow: 1;
-    width: 25%;
-    padding: 3px 7px;
+  flex-grow: 1;
+  width: 25%;
+  padding: 3px 7px;
 }
 
 .message.unread {
-    font-weight: bold;
+  font-weight: bold;
 }

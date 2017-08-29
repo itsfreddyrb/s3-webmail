@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import reducers from './root-reducer';
 
 const logger = createLogger({
-    colors: false,
+  colors: false,
 });
 
 const middleware = applyMiddleware(thunk, logger);

@@ -8,12 +8,12 @@ const ReplyPopUp = (props) => {
     <PopUp
       show={props.show}
       hide={props.hide}
-    >
+      >
       <Reply
         sendMail={props.sendMail}
         to={props.to}
         subject={props.subject}
-      />
+        />
     </PopUp>
   );
 };
