@@ -4,14 +4,14 @@
   flex-flow: column nowrap;
   flex-wrap: nowrap;
   margin: 0 auto;
-  width: 50%;
+  width: 90%;
 }
 
 .compose form input, .compose form textarea {
   font-size: 1.1rem;
-  margin-bottom: 8px;
-  padding: 6px 12px;
-  width: 420px;
+  margin-bottom: .8px;
+  padding: .5rem 1rem;
+  width: 85%;
 }
 
 .compose form button {

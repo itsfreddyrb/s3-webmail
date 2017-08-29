@@ -2,24 +2,20 @@
   font-family: ubuntu;
   margin: 0 auto;
   margin-top: 18px;
-  width: 85%;
+  width: 85rem;
 }
 
 h1 {
   background-color: #d6ebf2;
-  padding: 10px 15px;
+  padding: 1rem 1.5rem;
 }
 
 i.fa {
-  margin: 0 12px;
+  margin: 0 1rem;
   color: #444;
 }
 
 i.fa:hover {
   color: black;
   cursor: pointer;
-}
-
-.smallNav {
-  width: 75%;
 }
