@@ -9,10 +9,12 @@ export default (props) => {
   const showChars = 30;
   const handleClick = (event) => {
     event.preventDefault();
+    if (msg.unread) {
+      props.markAsRead(msg._id);
+      msg.unread = false;
+    }
     const msgRoute = event.currentTarget.getAttribute('data-route');
     history.push(msgRoute);
-    msg.unread = false;
-    props.markAsRead(msg._id)
   }
   const msgRoute = `/message/${msg._id}`;
   let unreadStatusClassName = 'message';
