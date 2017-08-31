@@ -1,4 +1,5 @@
 *node_modules/
 *yarn.lock
 *backend/config/users.js
+*backend/attachments/
 *frontend/src/auth.js
