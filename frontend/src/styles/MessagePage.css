@@ -23,6 +23,10 @@ h1 i {
   float: right;
 }
 
+.attachments a {
+  display: block;
+}
+
 .attachments a, .attachments a:visited {
   color: red;
 }
