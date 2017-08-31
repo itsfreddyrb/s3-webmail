@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import BackButton from './BackButton';
-import ReplyToButton from './ReplyToButton';
+import Message from './MessageFull';
 import ReplyPopUp from './ReplyPopUp';
 
-import '../styles/IndividualMessage.css';
+
+import '../styles/MessagePage.css';
 
 class IndividualMessage extends Component {
   constructor() {
@@ -14,7 +14,6 @@ class IndividualMessage extends Component {
     };
   }
   componentWillMount() {
-    console.log('messages: ', this.props.messages);
     this.messages = this.props.messages.filter((msg) => {
       if(msg._id === this.props.id) {
         return msg;
@@ -41,42 +40,18 @@ class IndividualMessage extends Component {
       <div className="inbox">
         {this.messages.map((msg) => {
           return (
-            <div className="IndividualMessageContainer" key={msg._id}>
-              <BackButton />
-
-              <h1>Message
-                <ReplyToButton
-                  replyToClick={replyToClick}
-                  />
-              </h1>
-              <div className="IndividualMessage">
-
-                <div className="from">
-                  <span>From</span>
-                  <p>
-                    {msg.from}
-                  </p>
-                </div>
-                <div className="to">
-                  <span>To</span>
-                  <p>
-                    {msg.to}
-                  </p>
-                </div>
-                <div className="subject">
-                  <span>Subject</span>
-                  <p>
-                    {msg.subject}
-                  </p>
-                </div>
-                <div className="text">
-                  <span>Text</span>
-                  <p>
-                    {msg.text}
-                  </p>
-                </div>
-
-              </div>
+            <div
+              className="IndividualMessageContainer"
+              key={msg._id}
+            >
+              <Message
+                msg={msg}
+                key={msg._id}
+                replyToClick={replyToClick}
+                hideReply={hideReply}
+                showReplyStatus={this.state.show}
+                sendMail={this.props.sendMail}
+              />
               <ReplyPopUp
                 show={this.state.showReply}
                 hide={hideReply}
@@ -86,7 +61,7 @@ class IndividualMessage extends Component {
                 />
             </div>
 
-          )
+          );
         })}
       </div>
     );

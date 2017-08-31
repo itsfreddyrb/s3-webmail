@@ -22,3 +22,7 @@
 h1 i {
   float: right;
 }
+
+.attachments a, .attachments a:visited {
+  color: red;
+}

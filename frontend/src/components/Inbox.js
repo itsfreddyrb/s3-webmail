@@ -1,7 +1,7 @@
 import React from 'react';
 
 import InboxNavBar from './InboxNavBar';
-import Message from './Message';
+import Message from './MessagePreview';
 import ComposePopUp from './ComposePopUp';
 
 import '../styles/Inbox.css';
