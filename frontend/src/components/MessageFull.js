@@ -6,14 +6,6 @@ import ReplyToButton from './ReplyToButton';
 
 export default (props) => {
   const { msg, replyToClick, } = props;
-  const hasAttachments = () => {
-    if (msg.attachments.length) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
   return (
     <div className="IndividualMessageContainer">
       <BackButton />
@@ -50,7 +42,6 @@ export default (props) => {
           </p>
         </div>
         <Attachments
-          hasAttachment={hasAttachments}
           attachments={msg.attachments}
         />
       </div>
