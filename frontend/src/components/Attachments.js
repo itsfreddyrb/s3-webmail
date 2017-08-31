@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default (props) => {
-  if (props.hasAttachment) {
+  if (props.hasAttachment.length) {
     return (
       <div className="attachments">
         <span>Attachments:</span>
