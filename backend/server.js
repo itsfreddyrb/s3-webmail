@@ -1,6 +1,7 @@
 const Hapi = require('hapi');
 const bcrypt = require('bcrypt');
 const basicAuth = require('hapi-auth-basic');
+const inert = require('inert'); // for file downloads
 const users = require('./config/users.js');
 const routes = require('./config/routes.js');
 const {
@@ -8,7 +9,15 @@ const {
     DisconnectFromMailbox,
 } = require('./config/MailModel.js');
 
-const server = new Hapi.Server();
+const server = new Hapi.Server({
+  connections: {
+    routes: {
+      files: {
+        relativeTo: __dirname,
+      },
+    },
+  },
+});
 server.connection({
     port: 9001,
     routes: {
@@ -18,6 +27,7 @@ server.connection({
         },
     },
 });
+server.register(inert, () => {});
 
 const validate = (request, username, password, callback) => {
     const user = users[username];

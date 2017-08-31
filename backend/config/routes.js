@@ -1,7 +1,8 @@
 const getMail = require('../fn/getMail.js');
 const getNew = require('../fn/getNewMail.js');
-const sendMail = require('../fn/sendMail.js');
 const markMailAsRead = require('../fn/markMailAsRead.js');
+const sendMail = require('../fn/sendMail.js');
+const offerFileForDownload = require('../fn/offerFileForDownload.js');
 
 module.exports = [
     {
@@ -23,7 +24,7 @@ module.exports = [
         handler: (req, reply) => {
             getNew()
             .then((newMessages) => {
-                reply(newMessages);
+              reply(newMessages);
             })
             .catch((err) => {
                 reply(err);
@@ -54,6 +55,21 @@ module.exports = [
         path: '/markasread/',
         handler: (req, reply) => {
             markMailAsRead(req.payload.id);
+            reply({});
         }
+    },
+    {
+      method: 'GET',
+      path: '/download/{cid}',
+      handler: (req, reply) => {
+        offerFileForDownload(req.params.cid)
+        .then((attachment) => {
+          reply(attachment);
+        })
+        .catch((err) => {
+          console.log('err during offerFileFOrDownload function:\n', err);
+          reply(err);
+        });
+      }
     }
 ];
