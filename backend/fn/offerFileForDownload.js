@@ -19,11 +19,13 @@ function offerFileForDownload (contentId) {
                   reject(err);
                 }
                 else {
-                  const fileObj = {
-                    path: `./attachments/${attachment.cid}`,
-                    filename: attachment.filename,
-                  };
-                  fulfill(fileObj);
+                  fulfill({
+                    file: {
+                      path: `./attachments/${attachment.cid}`,
+                      filename: attachment.filename,
+                    }
+                  });
+
                 }
               });
             }

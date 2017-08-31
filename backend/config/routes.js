@@ -64,10 +64,15 @@ module.exports = [
       handler: (req, reply) => {
         offerFileForDownload(req.params.cid)
         .then((attachment) => {
-          reply(attachment);
+          return reply.file(attachment.file.path,
+            {
+              filename: attachment.file.filename,
+              mode: 'attachment',
+            },
+          );
         })
         .catch((err) => {
-          console.log('err during offerFileFOrDownload function:\n', err);
+          console.log('err during offerFileForDownload function:\n', err);
           reply(err);
         });
       }
