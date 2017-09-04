@@ -12,6 +12,7 @@ const {
 const server = new Hapi.Server({
   connections: {
     routes: {
+      cors: true,
       files: {
         relativeTo: __dirname,
       },
@@ -20,12 +21,6 @@ const server = new Hapi.Server({
 });
 server.connection({
     port: 9001,
-    routes: {
-        cors: {
-            origin: ['*'],
-            credentials: true,
-        },
-    },
 });
 server.register(inert, () => {});
 
