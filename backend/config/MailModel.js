@@ -18,7 +18,7 @@ const mailSchema = mongoose.Schema({
     unread: Boolean,
 });
 
-const Mail = mongoose.model('Mail', mailSchema);
+const Mail = mongoose.model('Mails', mailSchema);
 Mail.find = promisify(Mail.find);
 
 const connect = (dbName) => {
